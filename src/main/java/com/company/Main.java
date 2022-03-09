@@ -1,4 +1,6 @@
 package com.company;
+
+
 import java.util.Scanner;
 
 
@@ -20,6 +22,11 @@ public class Main {   //0001001100110011
         NeuralNetwork neural1 = new NeuralNetwork();
         neural1.Threshold(booleanFunction.GetTableFunction(),booleanFunction.GetBooleanFunctionValues());
         GetPrint(neural1);
+        try {
+            neural1.Draw();
+        } catch (Exception E){
+            System.err.print(E.getMessage());
+        }
 
         //Обучение НС с использованием всех комбинаций переменных используя логистическую ФА
         NeuralNetwork neural2 = new NeuralNetwork();

@@ -1,9 +1,13 @@
 package com.company;
 
+import com.github.sh0nk.matplotlib4j.Plot;
+
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class NeuralNetwork {
     private final Vector<String> table;
+    private final ArrayList<Integer> numberErrors;
     private double w0,w1,w2,w3,w4;
     private int era;
 
@@ -11,6 +15,7 @@ public class NeuralNetwork {
         w0 = w1 = w2 = w3 = w4 = 0;
         era = 0;
         table = new Vector<>();
+        numberErrors = new ArrayList<>();
         table.add("№ |      Vector Weight W             |            Output vector Y                       | error E |");
     }
 
@@ -51,6 +56,7 @@ public class NeuralNetwork {
                     errors +=1;
                 }
             }
+            numberErrors.add(errors);
             era +=1;
             info = info.substring(0,info.length()-2);
             info = info.concat(String.format(")    E = %d",errors));
@@ -73,6 +79,12 @@ public class NeuralNetwork {
     }
     public Vector<String> GetTable() {
         return table;
+    }
+
+    public void Draw() throws Exception{
+        Plot plot = Plot.create();
+        plot.plot().add(numberErrors);
+        plot.show();
     }
 }
 
