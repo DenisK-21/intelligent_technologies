@@ -37,11 +37,11 @@ public class Functions {
     }
 
     public boolean[][] MinVector(int[] arr){
-        boolean[][] sd = new boolean[arr.length][4];
-        for (int i = 0; i < sd.length; i++) {
-            sd[i] = matrix[arr[i]-1];
+        boolean[][] minM = new boolean[arr.length][4];
+        for (int i = 0; i < minM.length; i++) {
+            minM[i] = matrix[arr[i]-1];
         }
-        return sd;
+        return minM;
     }
     public Vector<Boolean> MinFun(int[] arr){
 
